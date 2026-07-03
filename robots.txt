@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://filippo-chef-malgeri.moghito.com/sitemap.xml
