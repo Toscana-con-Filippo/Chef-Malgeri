@@ -712,4 +712,6 @@ html.chef-welcome main,html.chef-welcome .site-footer{animation:chef-welcome-con
 @keyframes chef-welcome-header{from{opacity:0;transform:translateY(-8px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 @keyframes chef-welcome-content{from{opacity:.18;transform:translateY(10px) scale(.996);filter:blur(12px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
 @media(max-width:640px){html.chef-welcome body::after{width:66px;height:66px;font-size:20px}}
-@media(prefers-reduced-motion:reduce){html.chef-welcome body::before,html.chef-welcome body::after{display:none!important}html.chef-welcome .site-header,html.chef-welcome main,html.chef-welcome .site-footer{animation:none!important}}
+@keyframes chef-welcome-soft-fade{0%,34%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes chef-welcome-soft-content{from{opacity:.72}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){html.chef-welcome body::before{display:block!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;animation:chef-welcome-soft-fade .78s ease-out forwards!important}html.chef-welcome body::after{display:grid!important;filter:none!important;transform:translate(-50%,-50%)!important;animation:chef-welcome-soft-fade .68s ease-out forwards!important}html.chef-welcome .site-header,html.chef-welcome main,html.chef-welcome .site-footer{filter:none!important;transform:none!important;animation:chef-welcome-soft-content .58s ease-out both!important}}
