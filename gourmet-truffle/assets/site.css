@@ -823,3 +823,16 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;}
 }
 .site-header .nav-dropdown{align-self:center!important;}
 .italian-quote cite{display:none!important;}
+
+/* v16 premium first-visit reveal */
+html.chef-welcome body::before,html.chef-welcome body::after{position:fixed;pointer-events:none;}
+html.chef-welcome body::before{content:"";inset:0;z-index:2147483646;background:radial-gradient(circle at 50% 44%,rgba(255,252,245,.64),rgba(244,231,207,.90) 56%,rgba(232,215,185,.96)),rgba(251,244,231,.92);-webkit-backdrop-filter:blur(18px) saturate(.82);backdrop-filter:blur(18px) saturate(.82);animation:chef-welcome-veil 1.12s cubic-bezier(.22,.78,.24,1) forwards;}
+html.chef-welcome body::after{content:"CM";left:50%;top:50%;z-index:2147483647;width:76px;height:76px;display:grid;place-items:center;border:1px solid rgba(87,65,42,.30);border-radius:50%;color:#657258;background:rgba(255,253,248,.82);box-shadow:0 18px 52px rgba(75,48,22,.14);font:700 23px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.04em;transform:translate(-50%,-50%);animation:chef-welcome-mark 1.02s cubic-bezier(.22,.78,.24,1) forwards;}
+html.chef-welcome .site-header{animation:chef-welcome-header .94s .10s cubic-bezier(.22,.78,.24,1) both;}
+html.chef-welcome main,html.chef-welcome .site-footer{animation:chef-welcome-content 1.04s .14s cubic-bezier(.22,.78,.24,1) both;}
+@keyframes chef-welcome-veil{0%,18%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes chef-welcome-mark{0%{opacity:0;transform:translate(-50%,-50%) scale(.86);filter:blur(7px)}24%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:blur(0)}66%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:blur(0)}100%{opacity:0;transform:translate(-50%,-54%) scale(1.04);filter:blur(2px);visibility:hidden}}
+@keyframes chef-welcome-header{from{opacity:0;transform:translateY(-8px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes chef-welcome-content{from{opacity:.18;transform:translateY(10px) scale(.996);filter:blur(12px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@media(max-width:640px){html.chef-welcome body::after{width:66px;height:66px;font-size:20px}}
+@media(prefers-reduced-motion:reduce){html.chef-welcome body::before,html.chef-welcome body::after{display:none!important}html.chef-welcome .site-header,html.chef-welcome main,html.chef-welcome .site-footer{animation:none!important}}
